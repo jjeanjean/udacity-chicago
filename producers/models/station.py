@@ -87,13 +87,13 @@ class Station(Producer):
     def arrive_a(self, train, prev_station_id, prev_direction):
         """Denotes a train arrival at this station in the 'a' direction"""
         self.a_train = train
-        print("Train_a: {1}, Prev_direction_a: {0}".format(prev_direction, train.train_id))
+        print("Train_a: {1}, Prev_direction_a: {0}".format(prev_direction, train.train_id)) #check train id and prev direction
         self.run(train, "a", prev_station_id, prev_direction)
 
     def arrive_b(self, train, prev_station_id, prev_direction):
         """Denotes a train arrival at this station in the 'b' direction"""
         self.b_train = train
-        print("Train_b: {1}, Prev_direction_b: {0}".format(prev_direction, train.train_id))
+        print("Train_b: {1}, Prev_direction_b: {0}".format(prev_direction, train.train_id)) #check train id and prev direction
         self.run(train, "b", prev_station_id, prev_direction)
 
     def close(self):
