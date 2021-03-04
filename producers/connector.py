@@ -20,6 +20,8 @@ def configure_connector():
         logging.debug("connector already created skipping recreation")
         return
 
+    return
+
     # TODO: Complete the Kafka Connect Config below.
     # Directions: Use the JDBC Source Connector to connect to Postgres. Load the `stations` table
     # using incrementing mode, with `stop_id` as the incrementing column name.
