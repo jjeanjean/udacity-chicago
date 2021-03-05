@@ -63,8 +63,8 @@ async def transformedstation(Station):
         else :
             line = 'green'
     
-        transformed_station = TransformedStation(s.station_id, s.station_name, s.order, line)
-        table[transformed_station.station_id] = transformed_station
+        out = TransformedStation(s.station_id, s.station_name, s.order, line)
+        table[s.station_id] = out
 
 if __name__ == "__main__":
     app.main()
