@@ -87,7 +87,6 @@ class KafkaConsumer:
 
         try:
             msg = self.consumer.poll(self.consume_timeout)
-            print(msg)
         
         except Exception as e:
             logger.error(f'Poll Exception {e}')
@@ -103,7 +102,6 @@ class KafkaConsumer:
         
         else:
             self.message_handler(msg)
-            logger.info("_consume is incomplete - skipping")
             return 1
 
 
