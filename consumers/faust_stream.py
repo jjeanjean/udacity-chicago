@@ -37,12 +37,12 @@ app = faust.App("stations-stream", broker="kafka://localhost:9092", store="memor
 topic = app.topic("org.chicago.cta.stations", value_type=Station)
 
 # TODO: Define the output Kafka Topic
-out_topic = app.topic("org.chicago.cta.TransformedStation", partitions=1)
+out_topic = app.topic("org.chicago.cta.stations.table", partitions=1)
 
 # TODO: Define a Faust Table
 table = app.Table(
-    name = "TransformedStation",
-    default="str",
+    name = "org.chicago.cta.stations.table",
+    default="TransformedStation",
     partitions=1,
     changelog_topic=out_topic
 )
