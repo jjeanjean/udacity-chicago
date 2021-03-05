@@ -59,10 +59,11 @@ class KafkaConsumer:
         """Callback for when topic assignment takes place"""
         # TODO: If the topic is configured to use `offset_earliest` set the partition offset to
         # the beginning or earliest
-        logger.info("on_assign is incomplete - skipping")
+        #logger.info("on_assign is incomplete - skipping")
+        
         for partition in partitions:
             if self.offset_earliest:
-                partition.offset = 'OFFSET_BEGINING'
+                partition.offset = 'OFFSET_BEGINNING'
 
             # TODO
 
@@ -86,6 +87,7 @@ class KafkaConsumer:
 
         try:
             msg = self.consumer.poll(self.consume_timeout)
+            print(msg)
         
         except Exception as e:
             logger.error(f'Poll Exception {e}')
@@ -94,17 +96,20 @@ class KafkaConsumer:
         if msg is None:
             logger.debug('Message is empty')
             return 0
+        
         elif msg.error() is not None:
             logger.error(f'Message error {msg.error()}')
+            return 0
+        
         else:
             self.message_handler(msg)
-        logger.info("_consume is incomplete - skipping")
-        return 0
+            logger.info("_consume is incomplete - skipping")
+            return 1
 
 
     def close(self):
         """Cleans up any open kafka consumers"""
 
         # TODO: Cleanup the kafka consumer
-
-        self.consummer.close()
+        
+        self.consumer.close()
