@@ -86,14 +86,14 @@ class KafkaConsumer:
         # is retrieved.
 
         try:
-            msg = self.consumer.poll(self.consume_timeout)
+            msg = self.consumer.poll((self.consume_timeout))
         
         except Exception as e:
             logger.error(f'Poll Exception {e}')
             return 0
 
         if msg is None:
-            logger.info('Message is empty')
+            #logger.info('Message is empty')
             return 0
         
         elif msg.error() is not None:
@@ -102,7 +102,7 @@ class KafkaConsumer:
         
         else:
             self.message_handler(msg)
-            logger.info(" Message received by consumer")
+            logger.info(f"Message received by consumer {msg.value()}")
             return 1
 
 

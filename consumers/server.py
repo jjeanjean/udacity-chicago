@@ -91,6 +91,8 @@ def run_server():
         logger.info(
             f"Open a web browser to http://localhost:{WEB_SERVER_PORT} to see the Transit Status Page"
         )
+        
+        
         for consumer in consumers:
             tornado.ioloop.IOLoop.current().spawn_callback(consumer.consume)
 

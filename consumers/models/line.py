@@ -58,7 +58,7 @@ class Line:
         """Given a kafka message, extract data"""
         # TODO: Based on the message topic, call the appropriate handler.
         
-        if messsage.topic() == 'org.chicago.cta.TransformedStation': # Set the conditional correctly to the stations Faust Table
+        if messsage.topic() == 'org.chicago.cta.stations.table': # Set the conditional correctly to the stations Faust Table
             try:
                 value = json.loads(message.value())
                 self._handle_station(value)
