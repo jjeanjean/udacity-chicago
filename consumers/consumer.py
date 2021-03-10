@@ -93,7 +93,7 @@ class KafkaConsumer:
             return 0
 
         if msg is None:
-            logger.debug('Message is empty')
+            logger.info('Message is empty')
             return 0
         
         elif msg.error() is not None:
@@ -102,6 +102,7 @@ class KafkaConsumer:
         
         else:
             self.message_handler(msg)
+            logger.info(" Message received by consumer")
             return 1
 
 
