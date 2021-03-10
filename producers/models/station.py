@@ -23,7 +23,7 @@ class Station(Producer):
     def __init__(self, station_id, name, color, direction_a=None, direction_b=None):
         self.name = name
         # TODO: Complete the below by deciding on a topic name, number of partitions, and number of replicas
-        topic_name = 'org.chicago.cta.station.arrivals'  # TODO: Come up with a better topic name
+        topic_name = "org.chicago.cta.station.arrivals"  # TODO: Come up with a better topic name
         super().__init__(
             topic_name,
             key_schema=Station.key_schema,

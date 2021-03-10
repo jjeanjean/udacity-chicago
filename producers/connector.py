@@ -43,7 +43,7 @@ def configure_connector():
                # TODO
                "connection.password": "chicago",
                # TODO
-               "table.whitelist": CONNECTOR_NAME,
+               "table.whitelist": "stations",
                # TODO
                "mode": "incrementing",
                # TODO
@@ -51,7 +51,7 @@ def configure_connector():
                # TODO
                "topic.prefix": "org.chicago.cta.",
                # TODO
-               "poll.interval.ms": 1000 * 60 * 5,
+               "poll.interval.ms": 1000,
            }
        }),
     )

@@ -56,15 +56,15 @@ table = app.Table(
 @app.agent(out_topic)
 async def transformedstation(Station):
     async for s in Station:
+        line = None
         if s.red:
             line = 'red'
         elif s.blue:
             line = 'blue'
-        else :
+        elif s.green:
             line = 'green'
     
-        out = TransformedStation(s.station_id, s.station_name, s.order, line)
-        table[s.station_id] = out
+        table[s.station_id] = TransformedStation(station_id=s.station_id, station_name=s.station_name, order=s.order, line=line)
 
 if __name__ == "__main__":
     app.main()
