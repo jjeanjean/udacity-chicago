@@ -87,7 +87,6 @@ class KafkaConsumer:
 
         try:
             msg = self.consumer.poll(self.consume_timeout)
-            print(msg)
         
         except Exception as e:
             logger.error(f'Poll Exception {e}')
