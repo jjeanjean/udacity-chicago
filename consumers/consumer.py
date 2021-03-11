@@ -63,7 +63,7 @@ class KafkaConsumer:
         
         for partition in partitions:
             if self.offset_earliest:
-                partition.offset = 'OFFSET_BEGINNING'
+                partition.offset = OFFSET_BEGINNING
 
             # TODO
 
@@ -93,7 +93,7 @@ class KafkaConsumer:
             return 0
 
         if msg is None:
-            #logger.info('Message is empty')
+            logger.info(f'Message is empty')
             return 0
         
         elif msg.error() is not None:
