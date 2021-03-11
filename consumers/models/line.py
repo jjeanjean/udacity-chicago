@@ -60,7 +60,7 @@ class Line:
         
         if messsage.topic() == 'org.chicago.cta.stations.table': # Set the conditional correctly to the stations Faust Table
             try:
-                value = json.loads(message.value())
+                value = json.loads(message.value())          
                 self._handle_station(value)
             except Exception as e:
                 logger.fatal("bad station? %s, %s", value, e)

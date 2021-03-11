@@ -51,7 +51,7 @@ def configure_connector():
                # TODO
                "topic.prefix": "org.chicago.cta.",
                # TODO
-               "poll.interval.ms": 1000,
+               "poll.interval.ms": 60000,
            }
        }),
     )
