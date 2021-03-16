@@ -41,6 +41,7 @@ class Producer:
         self.broker_properties = {
             "bootstrap.servers": BROKER_URL,
             "schema.registry.url": SCHEMA_REGISTRY_URL,
+            "group.id": "cta_stations" #Set a group to better manage the data
         }
 
         self.admin_client = AdminClient({"bootstrap.servers": BROKER_URL})

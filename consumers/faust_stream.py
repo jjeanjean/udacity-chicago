@@ -53,7 +53,7 @@ table = app.Table(
 #
 #
 
-@app.agent(out_topic)
+@app.agent(topic) #it should be the input table here
 async def transformed_station(Station):
     async for s in Station:
         line = None

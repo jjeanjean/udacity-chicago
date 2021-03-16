@@ -23,8 +23,9 @@ class Weather:
             value = json.loads(json.dumps(message.value()))
             self.temperature = value.get("temperature")
             self.status = value.get("status")
+            
         except Exception as e:
-            logger.debug("erro while processed weather message")
+            logger.debug("error while processing weather message")
             
        
         logger.debug(

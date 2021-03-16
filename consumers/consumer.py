@@ -38,7 +38,7 @@ class KafkaConsumer:
         self.broker_properties = {
             "bootstrap.servers": BROKER_URL,
             "group.id": topic_name_pattern, 
-            'default.topic.config': {'auto.offset.reset': 'earliest'}
+            'default.topic.config': {'auto.offset.reset': 'earliest' if offset_earliest else 'latest'} #if no message have been consumed it will start from begining, otherwise it will start from the last message.
         }
 
         # TODO: Create the Consumer, using the appropriate type.
